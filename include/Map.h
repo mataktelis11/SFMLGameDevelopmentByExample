@@ -10,7 +10,7 @@
 #include "BaseState.h"
 #include "Character.h"
 
-enum Sheet{ Tile_Size = 16, Sheet_Width = 336, Sheet_Height = 320 };
+enum Sheet{ Tile_Size = 32, Sheet_Width = 1760, Sheet_Height = 1120 };
 
 using TileID = unsigned int;
 
@@ -70,6 +70,7 @@ public:
 	~Map();
 
 	Tile* GetTile(unsigned int l_x, unsigned int l_y);
+	Tile* GetTileBackground(unsigned int l_x, unsigned int l_y);
 	TileInfo* GetDefaultTile();
 
 	float GetGravity()const;
@@ -79,19 +80,25 @@ public:
 	std::string GetMusicName();
 
 	void LoadMap(const std::string& l_path);
+	void LoadBackGround(const std::string& l_path);
 	void LoadNext();
 
 	void Update(float l_dT);
 	void Draw();
+
+	void removeTile(int x, int y);
+
 private:
 	// Method for converting 2D coordinates to 1D ints.
 	unsigned int ConvertCoords(unsigned int l_x, unsigned int l_y);
 	void LoadTiles(const std::string& l_path);
 	void PurgeMap();
+	void PurgeMapBackground();
 	void PurgeTileSet();
 
 	TileSet m_tileSet;
 	TileMap m_tileMap;
+	TileMap m_tileMapBackground;
 	sf::Sprite m_background;
 	std::vector<sf::Sprite> hearts;
 	sf::Sprite hud;
