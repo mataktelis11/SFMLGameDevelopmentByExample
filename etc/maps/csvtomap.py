@@ -2,9 +2,9 @@ import csv
 import os
 
 # file names
-map_name = "map2.map.background"
+map_name = "map2.map"
 
-isBackground = True
+isBackground = False
 
 # map parameters (no SPACEs)
 bg_name = "MountainDusk"
@@ -22,7 +22,7 @@ if(not isBackground):
     f.write("DEFAULT_FRICTION 0.8 0\n")
 
 
-csvfile = open('layer22.csv')
+csvfile = open('1layer1.csv')
 
 csvreader = csv.reader(csvfile)
 
@@ -32,7 +32,19 @@ for i,row in enumerate(csvreader):
         if(tile=='-1'):
             continue
         else:
-            if(tile=='1763'):
+            if(tile=='1842'):
+                f.write("ENEMY Skeleton ")
+                f.write(str(j*32))
+                f.write(" ")
+                f.write(str(i*32))
+                f.write("\n")
+            elif(tile=='1843'):
+                f.write("ENEMY Goblin ")
+                f.write(str(j*32))
+                f.write(" ")
+                f.write(str(i*32))
+                f.write("\n")
+            elif(tile=='1763'):
                 f.write("PLAYER ")
                 f.write(str(j*32))
                 f.write(" ")
