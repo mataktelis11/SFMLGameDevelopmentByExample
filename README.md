@@ -1,15 +1,15 @@
-# SFML Simple 2D Game
+# SFML Simple 2D Game: Scroll of the Undead
 
 ![GitHub](https://img.shields.io/github/license/mataktelis11/Simple-SFML-2D-Game)
 ![GitHub top language](https://img.shields.io/github/languages/top/mataktelis11/Simple-SFML-2D-Game)
 
-This is a game based on the source code provided by the book **SFML Game Development By Example (ISBN 9781785287343)** (https://www.packtpub.com/product/sfml-game-development-by-example/9781785287343).
+This is a free and open-source game based on the source code provided by the book <a href="https://www.packtpub.com/product/sfml-game-development-by-example/9781785287343" target="_blank">SFML Game Development By Example (ISBN 9781785287343)</a>.
 
 <img src="/docs/screenshots/1.png" alt="Alt text" title="In-Development Screenshot">
 
 
 ## Intro
-This repository is a fork from **sschellhoff** (https://github.com/sschellhoff/SFMLGameDevelopmentByExample) who provided the original book's source code in a runnable version.
+This repository is a fork from <a href="https://github.com/sschellhoff/SFMLGameDevelopmentByExample" target="_blank">sschellhoff</a> who provided the original book's source code in a runnable version.
 
 NOTE: The project is still under development!!
 
@@ -36,20 +36,23 @@ This will generate an executable file called **ScrollOfTheUndead** in the curren
 ### Windows
 
 #### Prerequisites
-You need to have installed **Cmake**, **MinGW** compiler and **SFML**. All those need to be in you path. You can download **MinGW** and **SFML** from here: https://www.sfml-dev.org/download/sfml/2.5.1/. Also you can check out this helpful guide for building SFML projects in Windows: https://wfale.net/2023/01/02/sfml-c-and-windows-quick-guide-to-awesome-graphics/.
+You need to have installed <a href="https://cmake.org/" target="_blank">CMake</a>, a C++ compiler and **SFML**. All those need to be in you **path**. You can download **MinGW** and **SFML** from <a href="https://www.sfml-dev.org/download/sfml/2.5.1/" target="_blank">here</a>.  
+
+If this is your first time compiling an SFML project on Windows you can check out <a href="https://wfale.net/2023/01/02/sfml-c-and-windows-quick-guide-to-awesome-graphics/" target="_blank">this</a> helpful guide.
 
 #### Build
 
 1. Clone the repo or download it as a zip and extract it
-2. Create a folder called ```build``` and navigate into it using cmd or gitbash
-3. Compile by typing the following commands:
+2. Navigate using cmd or gitbash into the folder of the repository (the folder is called 'Simple-SFML-2D-Game')
+4. Create a folder called ```build``` and navigate into it
+5. Compile by typing the following commands:
 
 ```
 $ cmake -G "MinGW Makefiles" ..
 $ mingw32-make
 ```
 
-An .exe file should now exists in the build folder.
+An .exe file should now exist in the ```build``` folder.
 
 ## Details
 This is game is an improvement of the book's **Chapter 7**. More specifically the following additions have been made:
@@ -58,8 +61,8 @@ This is game is an improvement of the book's **Chapter 7**. More specifically th
 - Added music and sounds (not with the book's sound manager but with a much less sophisticated implementation)
 - ~Added a new tileset (16 * 16)~ Added an new Tile Set (32x32).
 - Added a Python script that generates .map files from .png images (This makes it easier to create a map)
-- Added **CMakeLists.txt** a based on this amazing guide: https://dane-bulat.medium.com/cmake-building-sfml-and-game-projects-on-linux-3947b3ba6e8
-- Minor other changes
+- Added **CMakeLists.txt** a based on <a href="https://dane-bulat.medium.com/cmake-building-sfml-and-game-projects-on-linux-3947b3ba6e8" target="_blank">this</a> amazing guide.
+- Minor other changes...
 
 This project started because I wanted to create a video game from scratch. Thankfully the book does a good job providing and explaining a template that can be a good start as my very first game. I strongly recommend you check out this book if you want to see what game development really is.
 
@@ -94,16 +97,16 @@ Before checking out the source code I strongly recommend to read the book first 
     - https://ansimuz.itch.io/mountain-dusk-parallax-background - Author: ansimuz
 5. Fonts:
     - All fonts in the game's Resources are from https://www.dafont.com/
-6. Logo made with https://placeit.net/
-
+6. Logo made with <a href="https://placeit.net/" target="_blank">placeit.net</a>
 
 Huge shout out to all those amazing creators!
 
-
 ## Tools used
-- Libresprite: https://libresprite.github.io/#!/
-- Gimp: https://www.gimp.org/
-- Audacity: https://www.audacityteam.org/
+- <a href="https://libresprite.github.io/#!/" target="_blank">Libresprite</a>
+- <a href="https://www.gimp.org/" target="_blank">Gimp</a>
+- <a href="https://www.audacityteam.org/" target="_blank">Audacity</a>
+- <a href="https://www.mapeditor.org/" target="_blank">Tiled</a>
+
 
 ## Important
 I do **NOT** own the mentioned book, and this project is not made to be sold in any way.
