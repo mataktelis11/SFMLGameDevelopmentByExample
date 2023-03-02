@@ -58,7 +58,8 @@ void State_Game::Update(const sf::Time& l_time){
 		m_stateMgr->SwitchTo(StateType::GameOver);
 		return;
 	} else {
-		std::cout<<player->GetPosition().x << " " << player->GetPosition().y <<std::endl;
+		// printing player's position
+		std::cout<<player->GetPosition().x << ' ' << player->GetPosition().y <<'\n';
 		m_view.setCenter(player->GetPosition());
 		context->m_wind->GetRenderWindow()->setView(m_view);
 	}
