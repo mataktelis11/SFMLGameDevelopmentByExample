@@ -136,7 +136,6 @@ void Map::LoadMap(const std::string& l_path){
 			m_context->m_characterCurrentHealth = m_characterHp;
 						
 			if(m_context->m_textureManager->RequireResource("HeartFull") && m_context->m_textureManager->RequireResource("HeartEmpty")){
-				std::cout<<"PLAYER HEALTH" << std::endl;
 				sf::Texture* healthTexture = m_context->m_textureManager->GetResource("HeartFull");
 				for(int i=0; i<m_characterHp; i++){
 					sf::Sprite sprite;
