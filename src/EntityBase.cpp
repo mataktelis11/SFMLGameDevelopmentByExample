@@ -62,8 +62,8 @@ void EntityBase::Move(float l_x, float l_y){
 	sf::Vector2u mapSize = m_entityManager->GetContext()->m_gameMap->GetMapSize();
 	if(m_position.x < 0){
 		m_position.x = 0;
-	} else if(m_position.x > (mapSize.x + 1) * Sheet::Tile_Size){
-		m_position.x = (mapSize.x + 1) * Sheet::Tile_Size;
+	} else if(m_position.x > (mapSize.x) * Sheet::Tile_Size){
+		m_position.x = (mapSize.x) * Sheet::Tile_Size;
 	}
 
 	if(m_position.y < 0){

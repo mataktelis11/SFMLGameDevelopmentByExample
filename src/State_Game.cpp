@@ -58,18 +58,30 @@ void State_Game::Update(const sf::Time& l_time){
 		m_stateMgr->SwitchTo(StateType::GameOver);
 		return;
 	} else {
-		// printing player's position
-		std::cout<<player->GetPosition().x << ' ' << player->GetPosition().y <<'\n';
+		// printing player's position (DEBUG ONLY)
+		//std::cout<<player->GetPosition().x << ' ' << player->GetPosition().y <<'\n';
 		m_view.setCenter(player->GetPosition());
 		context->m_wind->GetRenderWindow()->setView(m_view);
 	}
 
+	// Check if screen leaves the boundaries of the map.
 	sf::FloatRect viewSpace = context->m_wind->GetViewSpace();
+	// Check the top-left corner of the viewSpace
 	if(viewSpace.left <= 0){
-		m_view.setCenter(viewSpace.width / 2,m_view.getCenter().y);
+		// place top-left at the edge of the screen
+		m_view.setCenter(viewSpace.width / 2, m_view.getCenter().y);
 		context->m_wind->GetRenderWindow()->setView(m_view);
-	} else if (viewSpace.left + viewSpace.width > (m_gameMap->GetMapSize().x + 1) * Sheet::Tile_Size){
-		m_view.setCenter(((m_gameMap->GetMapSize().x + 1) * Sheet::Tile_Size) - (viewSpace.width / 2), m_view.getCenter().y);
+	} else if (viewSpace.left + viewSpace.width > (m_gameMap->GetMapSize().x) * Sheet::Tile_Size){
+		// view is outside of the map in the opposite direction
+		m_view.setCenter(((m_gameMap->GetMapSize().x) * Sheet::Tile_Size) - (viewSpace.width / 2), m_view.getCenter().y);
+		context->m_wind->GetRenderWindow()->setView(m_view);
+	}
+
+	// std::cout << "viewSpace" << '\n';
+	// std::cout << "viewSpace.top: "<< viewSpace.top << '\n';
+
+	 if(viewSpace.height + viewSpace.top > (m_gameMap->GetMapSize().y) * Sheet::Tile_Size){
+		m_view.setCenter(m_view.getCenter().x, ((m_gameMap->GetMapSize().y) * Sheet::Tile_Size) - (viewSpace.height / 2));
 		context->m_wind->GetRenderWindow()->setView(m_view);
 	}
 
