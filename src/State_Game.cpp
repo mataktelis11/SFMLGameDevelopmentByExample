@@ -26,7 +26,11 @@ void State_Game::OnCreate(){
 	std::cout<<"Will load map "<<level<<std::endl;
 
 	// i know this is not ideal 
-	if(level==1)
+	if(level==0){
+		m_gameMap->LoadMap("media/Maps/map0.map");
+		m_gameMap->LoadBackGround("media/Maps/map0.map.background");
+	}
+	else if(level==1)
 		m_gameMap->LoadMap("media/Maps/map1.map");
 	else if(level==2){
 		m_gameMap->LoadMap("media/Maps/map2.map");

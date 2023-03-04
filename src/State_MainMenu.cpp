@@ -100,6 +100,10 @@ void State_MainMenu::MouseClick(EventDetails* l_details){
 				m_stateMgr->SwitchTo(StateType::ChooseMap);
 			} else if(i == 1){
 				// Credits state.
+				
+				std::cout<<"Player chose map 0"<<std::endl;
+				m_stateMgr->GetContext()->m_mapNumber = 0;
+				m_stateMgr->SwitchTo(StateType::Game);
 			} else if(i == 2){
 				m_stateMgr->GetContext()->m_wind->Close();
 			}
@@ -120,6 +124,8 @@ void State_MainMenu::Draw(){
 	}
 }
 
-void State_MainMenu::Activate(){}
+void State_MainMenu::Activate(){
+	m_stateMgr->Remove(StateType::Game);
+}
 void State_MainMenu::Update(const sf::Time& l_time){}
 void State_MainMenu::Deactivate(){}
