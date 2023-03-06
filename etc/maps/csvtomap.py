@@ -59,6 +59,15 @@ def createMapFile(map_name, csvFileName, isBackground, bg_name, music_name, widt
                     f.write(" ")
                     f.write(str(i*32))
                     f.write("\n")
+                elif(tile=='683'):
+                    f.write("TILE ")
+                    f.write(tile)
+                    f.write(" ")
+                    f.write(str(j))
+                    f.write(" ")
+                    f.write(str(i))
+                    f.write(" WARP")
+                    f.write("\n")
                 else:
                     f.write("TILE ")
                     f.write(tile)
@@ -76,17 +85,17 @@ def createMapFile(map_name, csvFileName, isBackground, bg_name, music_name, widt
 
 
 # input files
-layer1 = "map0_1.csv"
-layer2 = "map0_2.csv"
+layer1 = "map2_1.csv"
+layer2 = "map2_2.csv"
 
 # output
-map_name = "map0"
+map_name = "map2"
 
 # map parameters (no SPACEs)
 bg_name = "MountainDusk"
 music_name = "Nightmare.wav"
-width = 40
-height = 40
+width = 500
+height = 500
 
 fileMain = createMapFile(map_name, layer1, False, bg_name, music_name, width, height)
 

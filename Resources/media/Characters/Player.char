@@ -4,7 +4,7 @@ Hitpoints 5
 BoundingBox 20 46
 DamageBox -5 -20 70 70
 Speed 1024 128
-JumpVelocity 250
+JumpVelocity 300
 MaxVelocity 200 1024
 DeathSound SoundEffects/attack-cannibal-beast-95140.wav
 AttackSound SoundEffects/transition-explosion-121425.wav
