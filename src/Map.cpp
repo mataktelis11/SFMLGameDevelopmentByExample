@@ -39,10 +39,17 @@ std::string Map::GetMusicName(){ return m_musicName; }
 
 void Map::LoadMap(const std::string& l_path){
 
-	// Enemies counters
+	// Initialize enemies counters
 	m_totalEnemies = 0;
 	m_context->m_totalEnemies = 0;
 	m_context->m_deadEnemies = 0;
+
+	// Initialize pickup Variables
+	m_context->m_gold = 0;
+	m_context->m_books = 0;
+	m_context->m_rocks = 0;
+	m_context->m_totalBooks = 0;
+	m_context->m_totalRocks = 0;
 
 	std::ifstream mapFile;
 	mapFile.open(Utils::GetResourceDirectory() + l_path);
@@ -64,7 +71,6 @@ void Map::LoadMap(const std::string& l_path){
 			auto itr = m_tileSet.find(tileId);
 			if (itr == m_tileSet.end()){ std::cout << "! Tile id(" << tileId << ") was not found in tileset." << std::endl; continue; }
 			
-			//if(tileId == 1 || tileId == 4){std::cout <<"->added "<<tileId<<std::endl;}
 
 			sf::Vector2i tileCoords;
 			keystream >> tileCoords.x >> tileCoords.y;
@@ -92,6 +98,13 @@ void Map::LoadMap(const std::string& l_path){
 			keystream >> warp;
 			tile->m_warp = false;
 			if(warp == "WARP"){ tile->m_warp = true; }
+
+			if(tileId == 1477)
+				m_context->m_totalBooks += 1;
+			if(tileId == 1631)
+				m_context->m_totalRocks += 1;
+
+
 		} else if(type == "BACKGROUND"){
 			if (m_backgroundTexture != ""){ continue; }
 			keystream >> m_backgroundTexture;

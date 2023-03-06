@@ -90,15 +90,18 @@ Before checking out the source code I strongly recommend to read the book first 
     - https://freepd.com/world.php
     - https://freepd.com/horror.php
     - https://freepd.com/epic.php
-3. Sound effects: from https://pixabay.com/
-    - Knife slice - Author: NeoSpica
-    - Bone Crack - Author: Universfield
-    - attack cannibal beast - Author: jvmyka@gmail.com
-    - transition explosion - Author: Cristian Changing
-    - shield guard - Author: nekoninja
-    - Interface - Author: Universfield
-    - Failfare - Author: Wagna
-    - coin 2 - Author: soundnimja
+3. Sound effects: 
+    - from https://pixabay.com/
+        - Knife slice - Author: NeoSpica
+        - Bone Crack - Author: Universfield
+        - attack cannibal beast - Author: jvmyka@gmail.com
+        - transition explosion - Author: Cristian Changing
+        - shield guard - Author: nekoninja
+        - Interface - Author: Universfield
+        - Failfare - Author: Wagna
+        - coin 2 - Author: soundnimja
+    - from https://opengameart.org/
+        - Sound effects Pack 2 - Author: phoenix1291
 4. Backgrounds:
     - https://ansimuz.itch.io/mountain-dusk-parallax-background - Author: ansimuz
 5. Fonts:

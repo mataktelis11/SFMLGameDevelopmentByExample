@@ -26,4 +26,11 @@ struct SharedContext{
 	int m_characterCurrentHealth;
 	int m_totalEnemies;
 	int m_deadEnemies;
+
+	// pickup items
+	int m_gold;
+	int m_books;
+	int m_rocks;
+	int m_totalBooks;
+	int m_totalRocks;
 };

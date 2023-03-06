@@ -182,53 +182,44 @@ void EntityBase::CheckCollisions(){
 
 						// small coins
 						case 1596:
-							/* code */
+							PickUpItem(10, true);
 							gameMap->removeTile(x,y);
+							m_soundPickup1.play();
 							return;
-							break;
 
 						// medium coins
 						case 1600:
-							/* code */
+							PickUpItem(30, true);
 							gameMap->removeTile(x,y);
+							m_soundPickup1.play();
 							return;
-							break;
 
 						// large coins
 						case 1595:
-							/* code */
+							PickUpItem(100, true);
 							gameMap->removeTile(x,y);
+							m_soundPickup1.play();
 							return;
-							break;
 
 						// book
 						case 1477:
-							/* code */
+							PickUpItem(1, false);
 							gameMap->removeTile(x,y);
+							m_soundPickup2.play();
 							return;
-							break;
 
 						// stone
 						case 1631:
-							/* code */
+							PickUpItem(2, false);
 							gameMap->removeTile(x,y);
+							m_soundPickup3.play();
 							return;
-							break;
-						
-						default:
-							break;
-					}
 
-		
+					}
 			}
 
 			m_collisions.emplace_back(e);
 
-			// example of pickup system
-			// if(tile->m_properties->m_id==1){
-			// 	std::cout<<"touched!"<<std::endl;
-			// 	gameMap->removeTile(x,y);
-			// }
 		}
 	}
 }
@@ -277,4 +268,31 @@ void EntityBase::ResolveCollisions(){
 		m_collisions.clear();
 	}
 	if(!m_collidingOnY){ m_referenceTile = nullptr; }
+}
+
+void EntityBase::PickUpItem(int l_points, bool isGold){
+	SharedContext* context = m_entityManager->GetContext();
+
+	if(isGold){
+		context->m_gold += l_points;
+	}
+	else{
+		if(l_points==1)
+			context->m_books += 1;
+		else
+			context->m_rocks += 1;
+	}
+
+	std::cout<< "Update:" << '\n';
+
+	std::cout<< "gold: " << context->m_gold << '\n';
+
+	std::cout<< "books: " << context->m_books << '\n';
+
+	std::cout<< "rocks: " << context->m_rocks << '\n';
+
+	std::cout<< "Total books: " << context->m_totalBooks << '\n';
+
+	std::cout<< "Total rocks: " << context->m_totalRocks << '\n';
+
 }

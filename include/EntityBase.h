@@ -58,6 +58,9 @@ protected:
 	// Method for what THIS entity does TO the l_collider entity.
 	virtual void OnEntityCollision(EntityBase* l_collider, bool l_attack) = 0;
 
+	// Used only by the player
+	void PickUpItem(int points, bool isGold);
+
 	// Data members.
 	std::string m_name;
 	EntityType m_type;
