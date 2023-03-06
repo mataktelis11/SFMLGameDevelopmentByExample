@@ -84,9 +84,15 @@ protected:
 	sf::SoundBuffer m_bufferAttack;
 	sf::SoundBuffer m_bufferHurt;
 	sf::SoundBuffer m_bufferDie;
+	sf::SoundBuffer m_bufferPickup1;
+	sf::SoundBuffer m_bufferPickup2;
+	sf::SoundBuffer m_bufferPickup3;
 
 	sf::Sound m_soundAttack;
 	sf::Sound m_soundHurt;
 	sf::Sound m_soundDie;
+	sf::Sound m_soundPickup1;
+	sf::Sound m_soundPickup2;
+	sf::Sound m_soundPickup3;
 
 };

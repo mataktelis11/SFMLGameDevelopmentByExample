@@ -170,10 +170,60 @@ void EntityBase::CheckCollisions(){
 			float area = intersection.width * intersection.height;
 
 			CollisionElement e(area, tile->m_properties, tileBounds);
-			m_collisions.emplace_back(e);
+			
 			if(tile->m_warp && m_type == EntityType::Player){
 				gameMap->LoadNext();
 			}
+
+			// Pickup system
+			if(m_type == EntityType::Player){
+
+					switch (tile->m_properties->m_id) {
+
+						// small coins
+						case 1596:
+							/* code */
+							gameMap->removeTile(x,y);
+							return;
+							break;
+
+						// medium coins
+						case 1600:
+							/* code */
+							gameMap->removeTile(x,y);
+							return;
+							break;
+
+						// large coins
+						case 1595:
+							/* code */
+							gameMap->removeTile(x,y);
+							return;
+							break;
+
+						// book
+						case 1477:
+							/* code */
+							gameMap->removeTile(x,y);
+							return;
+							break;
+
+						// stone
+						case 1631:
+							/* code */
+							gameMap->removeTile(x,y);
+							return;
+							break;
+						
+						default:
+							break;
+					}
+
+		
+			}
+
+			m_collisions.emplace_back(e);
+
 			// example of pickup system
 			// if(tile->m_properties->m_id==1){
 			// 	std::cout<<"touched!"<<std::endl;
