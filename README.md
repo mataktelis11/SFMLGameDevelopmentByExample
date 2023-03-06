@@ -36,23 +36,28 @@ This will generate an executable file called **ScrollOfTheUndead** in the curren
 ### Windows
 
 #### Prerequisites
-You need to have installed <a href="https://cmake.org/" target="_blank">CMake</a>, a C++ compiler and **SFML**. All those need to be in you **path**. You can download **MinGW** and **SFML** from <a href="https://www.sfml-dev.org/download/sfml/2.5.1/" target="_blank">here</a>.  
+- <a href="https://cmake.org/" target="_blank">CMake</a>
+- <a href="https://git-scm.com/downloads" target="_blank">Git</a>
+- <a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.3.0/threads-posix/seh/x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z/download" target="_blank">MinGW 7.3.0 64 bit</a>
+- <a href="https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip" target="_blank">SFML 2.5.1 for MinGW 7.3.0</a>
 
-If this is your first time compiling an SFML project on Windows you can check out <a href="https://wfale.net/2023/01/02/sfml-c-and-windows-quick-guide-to-awesome-graphics/" target="_blank">this</a> helpful guide.
+Make sure that CMake, git, SFML and mingw are in your path. If this is your first time compiling an SFML project on Windows you can check out <a href="https://wfale.net/2023/01/02/sfml-c-and-windows-quick-guide-to-awesome-graphics/" target="_blank">this</a> helpful guide.
+
 
 #### Build
 
-1. Clone the repo or download it as a zip and extract it
-2. Navigate using cmd or gitbash into the folder of the repository (the folder is called 'Simple-SFML-2D-Game')
-4. Create a folder called ```build``` and navigate into it
-5. Compile by typing the following commands:
+Open cmd or gitbash and type the following commands to build from source
 
 ```
+$ git clone https://github.com/mataktelis11/Simple-SFML-2D-Game.git
+$ cd Simple-SFML-2D-Game
+$ mkdir build 
+$ cd build
 $ cmake -G "MinGW Makefiles" ..
 $ mingw32-make
 ```
 
-An .exe file should now exist in the ```build``` folder.
+An .exe file should now exist in the ```build``` folder called **ScrollOfTheUndead.exe**.
 
 ## Details
 This is game is an improvement of the book's **Chapter 7**. More specifically the following additions have been made:
@@ -86,14 +91,14 @@ Before checking out the source code I strongly recommend to read the book first 
     - https://freepd.com/horror.php
     - https://freepd.com/epic.php
 3. Sound effects: from https://pixabay.com/
-    - Knife slice - NeoSpica
-    - Bone Crack - Universfield
-    - attack cannibal beast - jvmyka@gmail.com
-    - transition explosion - Cristian Changing
-    - shield guard - nekoninja
-    - Interface - Universfield
-    - Failfare - Wagna
-    - coin 2 - soundnimja
+    - Knife slice - Author: NeoSpica
+    - Bone Crack - Author: Universfield
+    - attack cannibal beast - Author: jvmyka@gmail.com
+    - transition explosion - Author: Cristian Changing
+    - shield guard - Author: nekoninja
+    - Interface - Author: Universfield
+    - Failfare - Author: Wagna
+    - coin 2 - Author: soundnimja
 4. Backgrounds:
     - https://ansimuz.itch.io/mountain-dusk-parallax-background - Author: ansimuz
 5. Fonts:
