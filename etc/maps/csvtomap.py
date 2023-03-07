@@ -85,17 +85,17 @@ def createMapFile(map_name, csvFileName, isBackground, bg_name, music_name, widt
 
 
 # input files
-layer1 = "map2_1.csv"
-layer2 = "map2_2.csv"
+layer1 = "map0_1.csv"
+layer2 = "map0_2.csv"
 
 # output
-map_name = "map2"
+map_name = "map0"
 
 # map parameters (no SPACEs)
 bg_name = "MountainDusk"
 music_name = "Nightmare.wav"
-width = 500
-height = 500
+width = 40
+height = 40
 
 fileMain = createMapFile(map_name, layer1, False, bg_name, music_name, width, height)
 
