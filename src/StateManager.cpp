@@ -94,7 +94,7 @@ void StateManager::ProcessRequests(){
 void StateManager::SwitchTo(const StateType& l_type){
 
 	// Play a 'click' sound when the user does a transition
-	if(l_type!=StateType::Intro && l_type!=StateType::GameOver){
+	if(l_type!=StateType::Intro && l_type!=StateType::GameOver && l_type!=StateType::LevelCompleted){
 		m_UIsound.play();
 	}
 

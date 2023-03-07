@@ -101,7 +101,8 @@ Before checking out the source code I strongly recommend to read the book first 
         - Failfare - Author: Wagna
         - coin 2 - Author: soundnimja
     - from https://opengameart.org/
-        - Sound effects Pack 2 - Author: phoenix1291
+        - [Sound effects Pack 2](https://opengameart.org/content/sound-effects-pack-2) - Author: phoenix1291 
+        - [Level up sound effects](https://opengameart.org/content/level-up-sound-effects) - Author: bart 
 4. Backgrounds:
     - https://ansimuz.itch.io/mountain-dusk-parallax-background - Author: ansimuz
 5. Fonts:

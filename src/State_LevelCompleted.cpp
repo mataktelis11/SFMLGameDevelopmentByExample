@@ -7,6 +7,11 @@ State_LevelCompleted::State_LevelCompleted(StateManager* l_stateManager)
 State_LevelCompleted::~State_LevelCompleted(){}
 
 void State_LevelCompleted::OnCreate(){
+
+	m_bufferSuccessSound.loadFromFile(Utils::GetResourceDirectory() + "SoundEffects/chipquest.wav");
+	m_SuccessSound.setBuffer(m_bufferSuccessSound);
+	m_SuccessSound.setVolume(50.0f);
+
 	m_font.loadFromFile(Utils::GetResourceDirectory() + "media/Fonts/arial.ttf");
 	m_text.setFont(m_font);
 	m_text.setString(sf::String("MAIN MENU:"));
@@ -95,6 +100,9 @@ void State_LevelCompleted::Draw(){
 }
 
 
-void State_LevelCompleted::Activate(){}
+void State_LevelCompleted::Activate(){
+	m_SuccessSound.play();
+}
+
 void State_LevelCompleted::Deactivate(){}
 void State_LevelCompleted::Update(const sf::Time& l_time){}
