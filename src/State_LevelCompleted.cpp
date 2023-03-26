@@ -14,7 +14,7 @@ void State_LevelCompleted::OnCreate(){
 
 	m_font.loadFromFile(Utils::GetResourceDirectory() + "media/Fonts/arial.ttf");
 	m_text.setFont(m_font);
-	m_text.setString(sf::String("MAIN MENU:"));
+	m_text.setString(sf::String("Level Completed"));
 	m_text.setCharacterSize(20);
 
 	sf::FloatRect textRect = m_text.getLocalBounds();
