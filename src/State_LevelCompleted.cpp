@@ -15,7 +15,7 @@ void State_LevelCompleted::OnCreate(){
 	m_font.loadFromFile(Utils::GetResourceDirectory() + "media/Fonts/arial.ttf");
 	m_text.setFont(m_font);
 	m_text.setString(sf::String("MAIN MENU:"));
-	m_text.setCharacterSize(18);
+	m_text.setCharacterSize(20);
 
 	sf::FloatRect textRect = m_text.getLocalBounds();
 	m_text.setOrigin(textRect.left + textRect.width / 2.0f,
@@ -31,7 +31,7 @@ void State_LevelCompleted::OnCreate(){
 	str[0] = "Play Next Level";
 	str[1] = "Exit to Main Menu";
 
-	for(int i = 0; i < 2; ++i){
+	for(int i = 1; i < 2; ++i){
 		sf::Vector2f buttonPosition(
 			m_buttonPos.x,m_buttonPos.y + 
 			(i * (m_buttonSize.y + m_buttonPadding)));
@@ -44,7 +44,7 @@ void State_LevelCompleted::OnCreate(){
 
 		m_labels[i].setFont(m_font);
 		m_labels[i].setString(sf::String(str[i]));
-		m_labels[i].setCharacterSize(12);
+		m_labels[i].setCharacterSize(20);
 
 		sf::FloatRect rect = m_labels[i].getLocalBounds();
 		m_labels[i].setOrigin(
