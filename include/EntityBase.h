@@ -58,6 +58,9 @@ protected:
 	// Method for what THIS entity does TO the l_collider entity.
 	virtual void OnEntityCollision(EntityBase* l_collider, bool l_attack) = 0;
 
+	// Used only by the player
+	void PickUpItem(int points, bool isGold);
+
 	// Data members.
 	std::string m_name;
 	EntityType m_type;
@@ -84,9 +87,15 @@ protected:
 	sf::SoundBuffer m_bufferAttack;
 	sf::SoundBuffer m_bufferHurt;
 	sf::SoundBuffer m_bufferDie;
+	sf::SoundBuffer m_bufferPickup1;
+	sf::SoundBuffer m_bufferPickup2;
+	sf::SoundBuffer m_bufferPickup3;
 
 	sf::Sound m_soundAttack;
 	sf::Sound m_soundHurt;
 	sf::Sound m_soundDie;
+	sf::Sound m_soundPickup1;
+	sf::Sound m_soundPickup2;
+	sf::Sound m_soundPickup3;
 
 };

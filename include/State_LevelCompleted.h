@@ -28,4 +28,7 @@ private:
 
 	sf::RectangleShape m_rects[2];
 	sf::Text m_labels[2];
+
+	sf::SoundBuffer m_bufferSuccessSound;
+	sf::Sound m_SuccessSound;
 };

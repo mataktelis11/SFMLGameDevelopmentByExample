@@ -39,10 +39,17 @@ std::string Map::GetMusicName(){ return m_musicName; }
 
 void Map::LoadMap(const std::string& l_path){
 
-	// Enemies counters
+	// Initialize enemies counters
 	m_totalEnemies = 0;
 	m_context->m_totalEnemies = 0;
 	m_context->m_deadEnemies = 0;
+
+	// Initialize pickup Variables
+	m_context->m_gold = 0;
+	m_context->m_books = 0;
+	m_context->m_rocks = 0;
+	m_context->m_totalBooks = 0;
+	m_context->m_totalRocks = 0;
 
 	std::ifstream mapFile;
 	mapFile.open(Utils::GetResourceDirectory() + l_path);
@@ -64,7 +71,6 @@ void Map::LoadMap(const std::string& l_path){
 			auto itr = m_tileSet.find(tileId);
 			if (itr == m_tileSet.end()){ std::cout << "! Tile id(" << tileId << ") was not found in tileset." << std::endl; continue; }
 			
-			//if(tileId == 1 || tileId == 4){std::cout <<"->added "<<tileId<<std::endl;}
 
 			sf::Vector2i tileCoords;
 			keystream >> tileCoords.x >> tileCoords.y;
@@ -92,6 +98,13 @@ void Map::LoadMap(const std::string& l_path){
 			keystream >> warp;
 			tile->m_warp = false;
 			if(warp == "WARP"){ tile->m_warp = true; }
+
+			if(tileId == 1477)
+				m_context->m_totalBooks += 1;
+			if(tileId == 1631)
+				m_context->m_totalRocks += 1;
+
+
 		} else if(type == "BACKGROUND"){
 			if (m_backgroundTexture != ""){ continue; }
 			keystream >> m_backgroundTexture;
@@ -136,7 +149,6 @@ void Map::LoadMap(const std::string& l_path){
 			m_context->m_characterCurrentHealth = m_characterHp;
 						
 			if(m_context->m_textureManager->RequireResource("HeartFull") && m_context->m_textureManager->RequireResource("HeartEmpty")){
-				std::cout<<"PLAYER HEALTH" << std::endl;
 				sf::Texture* healthTexture = m_context->m_textureManager->GetResource("HeartFull");
 				for(int i=0; i<m_characterHp; i++){
 					sf::Sprite sprite;
@@ -149,8 +161,33 @@ void Map::LoadMap(const std::string& l_path){
 			// Set up Hud.
 			if(m_context->m_textureManager->RequireResource("Hud")){
 				sf::Texture* hudTexture = m_context->m_textureManager->GetResource("Hud");
-				hud.setTexture(*hudTexture);				
-				hud.setScale(0.6f,0.5f);	
+				m_hud.setTexture(*hudTexture);				
+				m_hud.setScale(0.6f,0.5f);
+			}
+
+			// Set up ItemsHUD
+			if(m_context->m_textureManager->RequireResource("HudItems1")){
+				sf::Texture* hudTextureItem = m_context->m_textureManager->GetResource("HudItems1");
+				m_items[0].setTexture(*hudTextureItem);
+				m_items[0].setScale(0.25f,0.25f);
+			}
+			if(m_context->m_textureManager->RequireResource("HudItems2")){
+				sf::Texture* hudTextureItem = m_context->m_textureManager->GetResource("HudItems2");
+				m_items[1].setTexture(*hudTextureItem);
+				m_items[1].setScale(0.25f,0.25f);
+			}
+			if(m_context->m_textureManager->RequireResource("HudItems3")){
+				sf::Texture* hudTextureItem = m_context->m_textureManager->GetResource("HudItems3");
+				m_items[2].setTexture(*hudTextureItem);
+				m_items[2].setScale(0.25f,0.25f);
+			}
+
+			// Set up Items Text
+			m_font.loadFromFile(Utils::GetResourceDirectory() + "media/Fonts/FORCED_SQUARE.ttf");
+
+			for(int j=0; j<3;j++){
+				m_labels[j].setFont(m_font);
+				m_labels[j].setCharacterSize(22);
 			}
 
 		} else if(type == "ENEMY"){
@@ -324,6 +361,8 @@ void Map::Draw(){
 		}
 	}
 
+	// HUD
+
 	// Choose correct sprite for each of the Hearts in the array.
 	if(m_context->m_characterCurrentHealth < m_characterHp){
 		sf::Texture* healthTexture = m_context->m_textureManager->GetResource("HeartEmpty");
@@ -338,8 +377,8 @@ void Map::Draw(){
 	}
 
 	// Draw HUD
-	hud.setPosition(viewSpace.left, viewSpace.top);
-	l_wind->draw(hud);
+	m_hud.setPosition(viewSpace.left, viewSpace.top);
+	l_wind->draw(m_hud);
 
 	// Draw Healthbar.
 	for(int i=0; i<hearts.size(); i++){
@@ -347,6 +386,31 @@ void Map::Draw(){
 		
 		l_wind->draw(hearts[i]);
 	}
+
+	// Items HUD
+
+	int padding = 10;
+
+	for(int i=0; i<3; i++){
+
+		sf::Vector2f itemBoxPosition(
+				viewSpace.left + 300 + i * (70 + padding),
+				viewSpace.top);
+
+		m_items[i].setPosition(itemBoxPosition);
+
+		m_labels[i].setPosition(itemBoxPosition.x + 15, itemBoxPosition.y + 1);
+	}
+
+	m_labels[0].setString(sf::String(std::to_string(m_context->m_gold)));
+	m_labels[1].setString(sf::String(std::to_string(m_context->m_books)));
+	m_labels[2].setString(sf::String(std::to_string(m_context->m_rocks)));
+
+	for(int i=0; i<3; i++){
+		l_wind->draw(m_items[i]);
+		l_wind->draw(m_labels[i]);
+	}
+
 }
 
 unsigned int Map::ConvertCoords(unsigned int l_x, unsigned int l_y){
@@ -368,6 +432,9 @@ void Map::PurgeMap(){
 	m_context->m_textureManager->ReleaseResource("HeartFull");
 	m_context->m_textureManager->ReleaseResource("HeartEmpty");
 	m_context->m_textureManager->ReleaseResource("Hud");
+	m_context->m_textureManager->ReleaseResource("HudItems1");
+	m_context->m_textureManager->ReleaseResource("HudItems2");
+	m_context->m_textureManager->ReleaseResource("HudItems3");
 }
 
 void Map::PurgeMapBackground(){

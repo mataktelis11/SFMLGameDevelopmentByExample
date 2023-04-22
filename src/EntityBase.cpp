@@ -62,8 +62,8 @@ void EntityBase::Move(float l_x, float l_y){
 	sf::Vector2u mapSize = m_entityManager->GetContext()->m_gameMap->GetMapSize();
 	if(m_position.x < 0){
 		m_position.x = 0;
-	} else if(m_position.x > (mapSize.x + 1) * Sheet::Tile_Size){
-		m_position.x = (mapSize.x + 1) * Sheet::Tile_Size;
+	} else if(m_position.x > (mapSize.x) * Sheet::Tile_Size){
+		m_position.x = (mapSize.x) * Sheet::Tile_Size;
 	}
 
 	if(m_position.y < 0){
@@ -170,15 +170,56 @@ void EntityBase::CheckCollisions(){
 			float area = intersection.width * intersection.height;
 
 			CollisionElement e(area, tile->m_properties, tileBounds);
-			m_collisions.emplace_back(e);
+			
 			if(tile->m_warp && m_type == EntityType::Player){
 				gameMap->LoadNext();
 			}
-			// example of pickup system
-			// if(tile->m_properties->m_id==1){
-			// 	std::cout<<"touched!"<<std::endl;
-			// 	gameMap->removeTile(x,y);
-			// }
+
+			// Pickup system
+			if(m_type == EntityType::Player){
+
+					switch (tile->m_properties->m_id) {
+
+						// small coins
+						case 1596:
+							PickUpItem(10, true);
+							gameMap->removeTile(x,y);
+							m_soundPickup1.play();
+							return;
+
+						// medium coins
+						case 1600:
+							PickUpItem(30, true);
+							gameMap->removeTile(x,y);
+							m_soundPickup1.play();
+							return;
+
+						// large coins
+						case 1595:
+							PickUpItem(100, true);
+							gameMap->removeTile(x,y);
+							m_soundPickup1.play();
+							return;
+
+						// book
+						case 1477:
+							PickUpItem(1, false);
+							gameMap->removeTile(x,y);
+							m_soundPickup2.play();
+							return;
+
+						// stone
+						case 1631:
+							PickUpItem(2, false);
+							gameMap->removeTile(x,y);
+							m_soundPickup3.play();
+							return;
+
+					}
+			}
+
+			m_collisions.emplace_back(e);
+
 		}
 	}
 }
@@ -227,4 +268,31 @@ void EntityBase::ResolveCollisions(){
 		m_collisions.clear();
 	}
 	if(!m_collidingOnY){ m_referenceTile = nullptr; }
+}
+
+void EntityBase::PickUpItem(int l_points, bool isGold){
+	SharedContext* context = m_entityManager->GetContext();
+
+	if(isGold){
+		context->m_gold += l_points;
+	}
+	else{
+		if(l_points==1)
+			context->m_books += 1;
+		else
+			context->m_rocks += 1;
+	}
+
+	std::cout<< "Update:" << '\n';
+
+	std::cout<< "gold: " << context->m_gold << '\n';
+
+	std::cout<< "books: " << context->m_books << '\n';
+
+	std::cout<< "rocks: " << context->m_rocks << '\n';
+
+	std::cout<< "Total books: " << context->m_totalBooks << '\n';
+
+	std::cout<< "Total rocks: " << context->m_totalRocks << '\n';
+
 }

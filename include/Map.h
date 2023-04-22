@@ -101,7 +101,7 @@ private:
 	TileMap m_tileMapBackground;
 	sf::Sprite m_background;
 	std::vector<sf::Sprite> hearts;
-	sf::Sprite hud;
+	sf::Sprite m_hud;
 	int m_characterHp;
 	TileInfo m_defaultTile;
 	sf::Vector2u m_maxMapSize;
@@ -114,6 +114,10 @@ private:
 	std::string m_backgroundTexture;
 	BaseState* m_currentState;
 	SharedContext* m_context;
+
+	sf::Sprite m_items[3];
+	sf::Text m_labels[3];
+	sf::Font m_font;
 
 	std::string m_musicName;
 	int m_totalEnemies;

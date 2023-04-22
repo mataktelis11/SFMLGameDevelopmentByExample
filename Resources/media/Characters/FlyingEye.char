@@ -1,0 +1,11 @@
+Name FlyingEye
+Spritesheet FlyingEye.sheet
+Hitpoints 2
+BoundingBox 20 45
+DamageBox 0 0 30 30
+Speed 512 64
+JumpVelocity 128
+MaxVelocity 128 1024
+DeathSound SoundEffects/monster1_sight.wav
+AttackSound SoundEffects/bigmonster_attack.wav
+HurtSound SoundEffects/monster1_pain.wav

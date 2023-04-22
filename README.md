@@ -1,15 +1,15 @@
-# SFML Simple 2D Game
+# SFML Simple 2D Game: Scroll of the Undead
 
 ![GitHub](https://img.shields.io/github/license/mataktelis11/Simple-SFML-2D-Game)
 ![GitHub top language](https://img.shields.io/github/languages/top/mataktelis11/Simple-SFML-2D-Game)
 
-This is a game based on the source code provided by the book **SFML Game Development By Example (ISBN 9781785287343)** (https://www.packtpub.com/product/sfml-game-development-by-example/9781785287343).
+This is a free and open-source game based on the source code provided by the book <a href="https://www.packtpub.com/product/sfml-game-development-by-example/9781785287343" target="_blank">SFML Game Development By Example (ISBN 9781785287343)</a>.
 
 <img src="/docs/screenshots/1.png" alt="Alt text" title="In-Development Screenshot">
 
 
 ## Intro
-This repository is a fork from **sschellhoff** (https://github.com/sschellhoff/SFMLGameDevelopmentByExample) who provided the original book's source code in a runnable version.
+This repository is a fork from <a href="https://github.com/sschellhoff/SFMLGameDevelopmentByExample" target="_blank">sschellhoff</a> who provided the original book's source code in a runnable version.
 
 NOTE: The project is still under development!!
 
@@ -36,20 +36,28 @@ This will generate an executable file called **ScrollOfTheUndead** in the curren
 ### Windows
 
 #### Prerequisites
-You need to have installed **Cmake**, **MinGW** compiler and **SFML**. All those need to be in you path. You can download **MinGW** and **SFML** from here: https://www.sfml-dev.org/download/sfml/2.5.1/. Also you can check out this helpful guide for building SFML projects in Windows: https://wfale.net/2023/01/02/sfml-c-and-windows-quick-guide-to-awesome-graphics/.
+- <a href="https://cmake.org/" target="_blank">CMake</a>
+- <a href="https://git-scm.com/downloads" target="_blank">Git</a>
+- <a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.3.0/threads-posix/seh/x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z/download" target="_blank">MinGW 7.3.0 64 bit</a>
+- <a href="https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip" target="_blank">SFML 2.5.1 for MinGW 7.3.0</a>
+
+Make sure that CMake, git, SFML and mingw are in your path. If this is your first time compiling an SFML project on Windows you can check out <a href="https://wfale.net/2023/01/02/sfml-c-and-windows-quick-guide-to-awesome-graphics/" target="_blank">this</a> helpful guide.
+
 
 #### Build
 
-1. Clone the repo or download it as a zip and extract it
-2. Create a folder called ```build``` and navigate into it using cmd or gitbash
-3. Compile by typing the following commands:
+Open cmd or gitbash and type the following commands to build from source
 
 ```
+$ git clone https://github.com/mataktelis11/Simple-SFML-2D-Game.git
+$ cd Simple-SFML-2D-Game
+$ mkdir build 
+$ cd build
 $ cmake -G "MinGW Makefiles" ..
 $ mingw32-make
 ```
 
-An .exe file should now exists in the build folder.
+An .exe file should now exist in the ```build``` folder called **ScrollOfTheUndead.exe**.
 
 ## Details
 This is game is an improvement of the book's **Chapter 7**. More specifically the following additions have been made:
@@ -58,8 +66,8 @@ This is game is an improvement of the book's **Chapter 7**. More specifically th
 - Added music and sounds (not with the book's sound manager but with a much less sophisticated implementation)
 - ~Added a new tileset (16 * 16)~ Added an new Tile Set (32x32).
 - Added a Python script that generates .map files from .png images (This makes it easier to create a map)
-- Added **CMakeLists.txt** a based on this amazing guide: https://dane-bulat.medium.com/cmake-building-sfml-and-game-projects-on-linux-3947b3ba6e8
-- Minor other changes
+- Added **CMakeLists.txt** a based on <a href="https://dane-bulat.medium.com/cmake-building-sfml-and-game-projects-on-linux-3947b3ba6e8" target="_blank">this</a> amazing guide.
+- Minor other changes...
 
 This project started because I wanted to create a video game from scratch. Thankfully the book does a good job providing and explaining a template that can be a good start as my very first game. I strongly recommend you check out this book if you want to see what game development really is.
 
@@ -82,28 +90,33 @@ Before checking out the source code I strongly recommend to read the book first 
     - https://freepd.com/world.php
     - https://freepd.com/horror.php
     - https://freepd.com/epic.php
-3. Sound effects: from https://pixabay.com/
-    - Knife slice - NeoSpica
-    - Bone Crack - Universfield
-    - attack cannibal beast - jvmyka@gmail.com
-    - transition explosion - Cristian Changing
-    - shield guard - nekoninja
-    - Interface - Universfield
-    - Failfare - Wagna
+3. Sound effects: 
+    - from https://pixabay.com/
+        - Knife slice - Author: NeoSpica
+        - Bone Crack - Author: Universfield
+        - attack cannibal beast - Author: jvmyka@gmail.com
+        - transition explosion - Author: Cristian Changing
+        - shield guard - Author: nekoninja
+        - Interface - Author: Universfield
+        - Failfare - Author: Wagna
+        - coin 2 - Author: soundnimja
+    - from https://opengameart.org/
+        - [Sound effects Pack 2](https://opengameart.org/content/sound-effects-pack-2) - Author: phoenix1291 
+        - [Level up sound effects](https://opengameart.org/content/level-up-sound-effects) - Author: bart 
 4. Backgrounds:
     - https://ansimuz.itch.io/mountain-dusk-parallax-background - Author: ansimuz
 5. Fonts:
     - All fonts in the game's Resources are from https://www.dafont.com/
-6. Logo made with https://placeit.net/
-
+6. Logo made with <a href="https://placeit.net/" target="_blank">placeit.net</a>
 
 Huge shout out to all those amazing creators!
 
-
 ## Tools used
-- Libresprite: https://libresprite.github.io/#!/
-- Gimp: https://www.gimp.org/
-- Audacity: https://www.audacityteam.org/
+- <a href="https://libresprite.github.io/#!/" target="_blank">Libresprite</a>
+- <a href="https://www.gimp.org/" target="_blank">Gimp</a>
+- <a href="https://www.audacityteam.org/" target="_blank">Audacity</a>
+- <a href="https://www.mapeditor.org/" target="_blank">Tiled</a>
+
 
 ## Important
 I do **NOT** own the mentioned book, and this project is not made to be sold in any way.
