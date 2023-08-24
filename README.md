@@ -11,7 +11,9 @@ This is a free and open-source game based on the source code provided by the boo
 ## Intro
 This repository is a fork from <a href="https://github.com/sschellhoff/SFMLGameDevelopmentByExample" target="_blank">sschellhoff</a> who provided the original book's source code in a runnable version.
 
-NOTE: The project is still under development!!
+Here is a video demo
+
+[Demo](https://github.com/mataktelis11/Simple-SFML-2D-Game/assets/61196956/3f2fdc0b-2267-4fb7-acc9-5ba0f6e3cbb3)
 
 ## Build Instructions
 
@@ -19,7 +21,10 @@ NOTE: The project is still under development!!
 
 #### Prerequisites
 
-Install SFML from your package manager. Also make sure you have cmake.
+Install SFML from your package manager. Also make sure you have cmake and g++. For Debian based distros:
+```
+sudo apt install libsfml-dev cmake build-essential
+```
 
 #### Build
 
