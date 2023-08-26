@@ -21,9 +21,15 @@ Here is a video demo
 
 #### Prerequisites
 
-Install SFML from your package manager. Also make sure you have cmake and g++. For Debian based distros:
+Install SFML from your package manager. Also, make sure you have ```cmake``` and ```g++```.
+
+For Debian based distros:
 ```
-sudo apt install libsfml-dev cmake build-essential
+$ sudo apt install libsfml-dev cmake build-essential
+```
+For Arch-based distros:
+```
+$ pacman -Syu cmake sfml base-devel 
 ```
 
 #### Build
@@ -70,7 +76,7 @@ This is game is an improvement of the book's **Chapter 7**. More specifically th
 - Added a new spritesheet for the player.
 - Added music and sounds (not with the book's sound manager but with a much less sophisticated implementation)
 - ~Added a new tileset (16 * 16)~ Added an new Tile Set (32x32).
-- Added a Python script that generates .map files from .png images (This makes it easier to create a map)
+- Added a Python script that generates .map files from .csv files made with <a href="https://www.mapeditor.org/" target="_blank">Tiled</a> (This makes it easier to create a map)
 - Added **CMakeLists.txt** a based on <a href="https://dane-bulat.medium.com/cmake-building-sfml-and-game-projects-on-linux-3947b3ba6e8" target="_blank">this</a> amazing guide.
 - Minor other changes...
 
@@ -78,15 +84,13 @@ This project started because I wanted to create a video game from scratch. Thank
 
 I chose Chapter 7 as I feel it is a good middle ground for everyone how have read the book. Do not expect this to be the most amazing game ever.
 
-Before checking out the source code I strongly recommend to read the book first (especially if you are relatively new to C++ like me).
+Before checking out the source code I strongly recommend to read the book first (especially if you are relatively new to C++ like me). There is also documentation (in Greek) provided in the **docs** folder.
 
 ## Assets used
 
-(Note that this section will be updated in future commits.)
-
 1. Textures:
     - Necromancer sprites: https://creativekind.itch.io/necromancer-free - Author: CreativeKind
-    - Skeleton sprites: https://luizmelo.itch.io/monsters-creatures-fantasy - Author: LuizMelo
+    - Enemy sprites: https://luizmelo.itch.io/monsters-creatures-fantasy - Author: LuizMelo
     - Tileset 16x16 (not used currently): https://poloviiinkin.itch.io/textures - Author: Poloviiinkin
     - Tileset 32x32 (this is the one used by the game): https://opengameart.org/content/dungeon-crawl-32x32-tiles - Author: Chris Hamons
     - Heart sprites: https://nicolemariet.itch.io/pixel-heart-animation-32x32-16x16-freebie - Author: NicoleMarieT
@@ -96,7 +100,7 @@ Before checking out the source code I strongly recommend to read the book first 
     - https://freepd.com/horror.php
     - https://freepd.com/epic.php
 3. Sound effects: 
-    - from https://pixabay.com/
+    - from https://pixabay.com
         - Knife slice - Author: NeoSpica
         - Bone Crack - Author: Universfield
         - attack cannibal beast - Author: jvmyka@gmail.com
@@ -105,14 +109,14 @@ Before checking out the source code I strongly recommend to read the book first 
         - Interface - Author: Universfield
         - Failfare - Author: Wagna
         - coin 2 - Author: soundnimja
-    - from https://opengameart.org/
+    - from https://opengameart.org
         - [Sound effects Pack 2](https://opengameart.org/content/sound-effects-pack-2) - Author: phoenix1291 
         - [Level up sound effects](https://opengameart.org/content/level-up-sound-effects) - Author: bart 
 4. Backgrounds:
     - https://ansimuz.itch.io/mountain-dusk-parallax-background - Author: ansimuz
 5. Fonts:
     - All fonts in the game's Resources are from https://www.dafont.com/
-6. Logo made with <a href="https://placeit.net/" target="_blank">placeit.net</a>
+6. Logo made with <a href="https://placeit.net" target="_blank">placeit.net</a>
 
 Huge shout out to all those amazing creators!
 
@@ -127,4 +131,4 @@ Huge shout out to all those amazing creators!
 I do **NOT** own the mentioned book, and this project is not made to be sold in any way.
 
 ## License
-GPL-3.0 license - Check the LICENSE.md file.
+GPL-3.0 license - Check the [LICENSE.md](https://github.com/mataktelis11/Simple-SFML-2D-Game/blob/master/LICENSE.md) file.
