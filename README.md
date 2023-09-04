@@ -13,7 +13,7 @@ This repository is a fork from <a href="https://github.com/sschellhoff/SFMLGameD
 
 Here is a video demo
 
-[Demo](https://github.com/mataktelis11/Simple-SFML-2D-Game/assets/61196956/3f2fdc0b-2267-4fb7-acc9-5ba0f6e3cbb3)
+[demo.webm](https://github.com/mataktelis11/Simple-SFML-2D-Game/assets/61196956/775ab4ba-fe83-4103-a83b-408e93744556)
 
 ## Build Instructions
 
